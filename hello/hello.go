@@ -1,10 +1,24 @@
 package main
 
-import("fmt"
-"greetings"
+import (
+	"fmt"
+	"greetings"
+	"log"
 )
 
-func main(){
-	message:= greetings.Hello("dev")
+func main() {
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("dev")
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(message)
+
+	message2, err := greetings.Hello("")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(message2)
 }
