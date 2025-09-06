@@ -16,4 +16,12 @@ func main() {
 	}
 	fmt.Println(message)
 
+	names := []string{"dev1", "dev2", "dev3"}
+
+	messages, err := greetings.Hellos(names)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(messages)
+
 }
